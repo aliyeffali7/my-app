@@ -1,0 +1,21 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+# SQLite
+*.sqlite3
+
+# Media files
+/media/
+
+# Excel files
+*.xlsx
+
+# VSCode settings
+.vscode/
+
+# Env file
+.env
