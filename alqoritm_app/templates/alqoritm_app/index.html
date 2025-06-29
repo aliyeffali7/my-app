@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Toplu Axtarış Sistemi</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+        input[type="file"] {
+            margin: 20px 0;
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Toplu Axtarış Sistemi</h2>
+        <p>Axtarış etmək istədiyiniz məlumatların olduğu Excel faylını yükləyin.</p>
+
+        <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.test_file }}
+    <br>
+    <button type="submit">Yüklə və Analiz Et</button>
+</form>
+
+
+        {% if error %}
+            <div class="error">
+                Xəta baş verdi: {{ error }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
